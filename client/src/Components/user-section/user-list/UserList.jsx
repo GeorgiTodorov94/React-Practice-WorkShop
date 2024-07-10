@@ -129,8 +129,7 @@ export default function UserList({
                         </tr>
                     </thead>
                     <tbody>
-                        <UserItem />
-                        <UserItem />
+                        {users.map(user => <UserItem />)}
                     </tbody>
                 </table>
 
