@@ -1,5 +1,8 @@
 import './App.css'
-import Header from './Components/Header/Header'
+import Footer from './Components/footer/Footer'
+import Header from './Components/header/Header'
+import UserList from './Components/user-list/UserList'
+
 
 function App() {
 
@@ -7,6 +10,10 @@ function App() {
         <>
             <Header />
 
+            <main>
+                <UserList />
+
+            </main>
 
 
             <Footer />
