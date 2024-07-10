@@ -2,6 +2,7 @@ import SearchForm from "../search/Search";
 import UserList from "./user-list/UserList";
 import { useState, useEffect } from "react";
 import Pagination from "../pagination/Pagination";
+import UserAdd from "./user-add/UserAdd";
 
 const baseUrl = 'http://localhost:3030/jsonstore'
 
@@ -9,6 +10,7 @@ const baseUrl = 'http://localhost:3030/jsonstore'
 export default function UserSection(props) {
 
     const [users, setUsers] = useState([]);
+    const [onClickAddUser, setOnClickAddUser] = useState(false);
 
 
     useEffect(() => {
@@ -27,13 +29,19 @@ export default function UserSection(props) {
 
     }, [])
 
+    const addUserClickHandler = () => {
+
+    }
+
     return (
         <>
             <section className="card users-container">
                 <SearchForm />
 
                 <UserList users={users} />
-                <button className="btn-add btn">Add new user</button>
+
+                <UserAdd />
+                <button className="btn-add btn" onClick={addUserClickHandler}>Add new user</button>
 
                 <Pagination />
 
