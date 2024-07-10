@@ -71,7 +71,7 @@ export default function UserList() {
         <h2>Failed to fetch</h2>
     </div> */}
                 </div>
-                <table class="table">
+                <table className="table">
                     <thead>
                         <tr>
                             <th>
@@ -135,7 +135,7 @@ export default function UserList() {
 
             </div>
 
-            <button class="btn-add btn">Add new user</button>
+            <button className="btn-add btn">Add new user</button>
 
         </>
 
