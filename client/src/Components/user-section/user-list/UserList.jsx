@@ -1,6 +1,8 @@
 import UserItem from "./user-item/UserItem";
 
-export default function UserList() {
+export default function UserList({
+    users,
+}) {
     return (
         <>
             <div className="table-wrapper">

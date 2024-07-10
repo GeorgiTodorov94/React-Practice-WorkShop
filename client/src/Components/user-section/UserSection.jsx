@@ -8,14 +8,20 @@ const baseUrl = 'http://localhost:3030/jsonstore'
 
 export default function UserSection() {
 
-    const [users, setUsers] = useState();
+    const [users, setUsers] = useState([]);
 
 
     useEffect(() => {
         (async function getUsers() {
 
-            const response = await fetch(`${baseUrl}/users`);
-            const result = await response.json();
+            try {
+                const response = await fetch(`${baseUrl}/users`);
+                const result = await response.json();
+                const users = Object.values(result);
+                setUsers(users)
+            } catch (error) {
+                alert(error.message)
+            }
 
         })();
 
@@ -26,7 +32,7 @@ export default function UserSection() {
             <section className="card users-container">
                 <SearchForm />
 
-                <UserList />
+                <UserList users={users} />
                 <Pagination />
 
             </section>

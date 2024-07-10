@@ -1,4 +1,6 @@
-export default function UserItem() {
+export default function UserItem({
+    users,
+}) {
     return (
         <>
 
