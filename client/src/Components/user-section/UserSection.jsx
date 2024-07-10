@@ -33,6 +33,7 @@ export default function UserSection(props) {
                 <SearchForm />
 
                 <UserList users={users} />
+                <button className="btn-add btn">Add new user</button>
 
                 <Pagination />
 
