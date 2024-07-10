@@ -1,6 +1,7 @@
 import SearchForm from "../search/Search";
 import UserList from "./user-list/UserList";
 import { useState, useEffect } from "react";
+import Pagination from "../pagination/Pagination";
 
 const baseUrl = 'http://localhost:3030/jsonstore'
 
@@ -26,7 +27,7 @@ export default function UserSection() {
                 <SearchForm />
 
                 <UserList />
-
+                <Pagination />
 
             </section>
 
