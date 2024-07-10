@@ -1,6 +1,6 @@
 import SearchForm from "../search/Search";
 
-export default function UserList() {
+export default function UserSection() {
     return (
         <>
             <section className="card users-container">
