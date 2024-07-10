@@ -6,7 +6,7 @@ import Pagination from "../pagination/Pagination";
 const baseUrl = 'http://localhost:3030/jsonstore'
 
 
-export default function UserSection() {
+export default function UserSection(props) {
 
     const [users, setUsers] = useState([]);
 
@@ -20,7 +20,7 @@ export default function UserSection() {
                 const users = Object.values(result);
                 setUsers(users)
             } catch (error) {
-                alert(error.message)
+                alert(error.message);
             }
 
         })();
@@ -33,6 +33,7 @@ export default function UserSection() {
                 <SearchForm />
 
                 <UserList users={users} />
+
                 <Pagination />
 
             </section>
