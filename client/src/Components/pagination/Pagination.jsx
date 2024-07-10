@@ -38,6 +38,7 @@ export default function Pagination() {
                             </path>
                         </svg>
                     </button>
+                    
 
                     <button className="btn" title="Last Page">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angles-right"
