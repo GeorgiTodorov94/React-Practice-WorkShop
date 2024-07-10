@@ -2,6 +2,7 @@ import UserItem from "./user-item/UserItem";
 
 export default function UserList({
     users,
+    onUsersDetailsCLick,
 }) {
     return (
         <>
@@ -129,7 +130,12 @@ export default function UserList({
                         </tr>
                     </thead>
                     <tbody>
-                        {users.map(user => <UserItem key={user._id} user={user} />)}
+                        {users.map(user =>
+                            <UserItem
+                                key={user._id}
+                                user={user}
+                                onUsersDetailsCLick={onUsersDetailsCLick}
+                            />)}
                     </tbody>
                 </table>
 

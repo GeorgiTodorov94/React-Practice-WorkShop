@@ -3,6 +3,7 @@ import UserList from "./user-list/UserList";
 import { useState, useEffect } from "react";
 import Pagination from "../pagination/Pagination";
 import UserAdd from "./user-add/UserAdd";
+import UserDetails from "./user-details/UserDetails";
 
 const baseUrl = 'http://localhost:3030/jsonstore'
 
@@ -11,6 +12,7 @@ export default function UserSection(props) {
 
     const [users, setUsers] = useState([]);
     const [showAddUser, setShowAddUser] = useState(false);
+    const [showUserDetailsById, setShowUserDetailsById] = useState(null);
 
 
     useEffect(() => {
@@ -46,7 +48,7 @@ export default function UserSection(props) {
             ...Object.fromEntries(formData),
             createdAt: new Date().toISOString(),
             updatedAt: new Date().toISOString(),
-            
+
         };
 
 
@@ -65,12 +67,19 @@ export default function UserSection(props) {
         setShowAddUser(false);
     }
 
+    const userDetailsClickHandler = (userId) => {
+        setShowUserDetailsById(userId);
+    }
+
     return (
         <>
             <section className="card users-container">
                 <SearchForm />
 
-                <UserList users={users} />
+                <UserList
+                    users={users}
+                    onUsersDetailsCLick={userDetailsClickHandler}
+                />
 
                 {showAddUser && (
                     <UserAdd
@@ -78,6 +87,10 @@ export default function UserSection(props) {
                         onSave={addUserSaveHandler}
                     />
                 )}
+
+                {showUserDetailsById &&
+                    <UserDetails user={users.find(user => showUserDetailsById)} />
+                }
 
                 <button className="btn-add btn" onClick={addUserClickHandler}>Add new user</button>
 
