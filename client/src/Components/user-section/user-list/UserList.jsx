@@ -134,6 +134,8 @@ export default function UserList() {
 
 
             </div>
+            <button class="btn-add btn">Add new user</button>
+
         </>
 
     );
