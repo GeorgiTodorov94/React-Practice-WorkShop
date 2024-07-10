@@ -33,6 +33,10 @@ export default function UserSection(props) {
         setShowAddUser(true)
     }
 
+    const AddUserCloseHandler = () => {
+        setShowAddUser(false);
+    }
+
     return (
         <>
             <section className="card users-container">
@@ -40,7 +44,7 @@ export default function UserSection(props) {
 
                 <UserList users={users} />
 
-                {showAddUser && <UserAdd />}
+                {showAddUser && <UserAdd onClose={AddUserCloseHandler} />}
                 <button className="btn-add btn" onClick={addUserClickHandler}>Add new user</button>
 
                 <Pagination />
