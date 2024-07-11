@@ -71,6 +71,17 @@ export default function UserSection(props) {
         setShowUserDetailsById(userId);
     }
 
+
+    const userDeleteClickHandler = async (userId) => {
+        const response = await fetch(`${baseUrl}/users/${userId}`, {
+            method: 'DELETE',
+        })
+
+        setUsers(oldUsers => oldUsers.filter(user => user._id !== userId))
+
+    }
+
+
     return (
         <>
             <section className="card users-container">
@@ -79,6 +90,7 @@ export default function UserSection(props) {
                 <UserList
                     users={users}
                     onUsersDetailsCLick={userDetailsClickHandler}
+                    onUserDeleteClick={userDeleteClickHandler}
                 />
 
                 {showAddUser && (

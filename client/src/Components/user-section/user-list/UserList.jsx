@@ -3,6 +3,7 @@ import UserItem from "./user-item/UserItem";
 export default function UserList({
     users,
     onUsersDetailsCLick,
+    onUserDeleteClick,
 }) {
     return (
         <>
@@ -135,6 +136,7 @@ export default function UserList({
                                 key={user._id}
                                 user={user}
                                 onUsersDetailsCLick={onUsersDetailsCLick}
+                                onUserDeleteClick={onUserDeleteClick}
                             />)}
                     </tbody>
                 </table>
