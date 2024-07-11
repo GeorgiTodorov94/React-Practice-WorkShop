@@ -23,11 +23,11 @@ export default function UserDetails({
                         </header>
                         <div className="content">
                             <div className="image-container">
-                                <img src={user.imageUrl} alt=""
+                                <img src={user.imageUrl} alt="avatar"
                                     className="image" />
                             </div>
                             <div className="user-details">
-                                <p>User Id: <strong>62bb0c0eda039e2fdccba57b</strong></p>
+                                <p>User Id: <strong>{user._id}</strong></p>
                                 <p>
                                     Full Name:
                                     <strong> {user.firstName} {user.lastName} </strong>
@@ -36,7 +36,7 @@ export default function UserDetails({
                                 <p>Phone Number: <strong>{user.phoneNumber}</strong></p>
                                 <p>
                                     Address:
-                                    <strong>{Object.values(user.address).join(', ')}</strong>
+                                    <strong>{user.country} {user.city} {user.street} {user.streetNumber}</strong>
                                 </p>
 
                                 <p>Created on: <strong>{formatDate(user.createdAt)}</strong></p>

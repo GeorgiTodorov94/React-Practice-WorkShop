@@ -1,6 +1,6 @@
 export default function UserDelete({
     onClose,
-    onUserDelete
+    onUserDelete,
 }) {
     return (
         <>

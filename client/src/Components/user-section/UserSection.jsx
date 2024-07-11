@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Pagination from "../pagination/Pagination";
 import UserAdd from "./user-add/UserAdd";
 import UserDetails from "./user-details/UserDetails";
+import UserDelete from "./user-delete/UserDelete";
 
 const baseUrl = 'http://localhost:3030/jsonstore'
 
@@ -13,6 +14,7 @@ export default function UserSection(props) {
     const [users, setUsers] = useState([]);
     const [showAddUser, setShowAddUser] = useState(false);
     const [showUserDetailsById, setShowUserDetailsById] = useState(null);
+    const [showUserDeleteById, setShowUserDeleteById] = useState(null);
 
 
     useEffect(() => {
@@ -72,13 +74,18 @@ export default function UserSection(props) {
     }
 
 
-    const userDeleteClickHandler = async (userId) => {
+    const userDeleteClickHandler = (userId) => {
+        setShowUserDeleteById(userId)
+    }
+
+    const userDeleteHandler = async (userId) => {
+
         const response = await fetch(`${baseUrl}/users/${userId}`, {
             method: 'DELETE',
         })
 
         setUsers(oldUsers => oldUsers.filter(user => user._id !== userId))
-
+        setShowUserDeleteById(null)
     }
 
 
@@ -100,12 +107,19 @@ export default function UserSection(props) {
                     />
                 )}
 
-                {showUserDetailsById &&
+                {showUserDetailsById && (
                     <UserDetails
                         user={users.find(user => user._id === showUserDetailsById)}
                         onClose={() => setShowUserDetailsById(null)}
                     />
-                }
+                )}
+
+                {showUserDeleteById && (
+                    <UserDelete
+                        onClose={() => setShowUserDeleteById(null)}
+                        onUserDelete={userDeleteHandler}
+                    />
+                )}
 
                 <button className="btn-add btn" onClick={addUserClickHandler}>Add new user</button>
 

@@ -1,5 +1,4 @@
 import { formatDate } from "../../../../utils/formatDate"
-import UserList from "../UserList"
 export default function UserListItem({
     user,
     onUsersDetailsCLick,
