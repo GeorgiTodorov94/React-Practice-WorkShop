@@ -89,7 +89,10 @@ export default function UserSection(props) {
                 )}
 
                 {showUserDetailsById &&
-                    <UserDetails user={users.find(user => user._id === showUserDetailsById)} />
+                    <UserDetails
+                        user={users.find(user => user._id === showUserDetailsById)}
+                        onClose={() => setShowUserDetailsById(null)}
+                    />
                 }
 
                 <button className="btn-add btn" onClick={addUserClickHandler}>Add new user</button>
