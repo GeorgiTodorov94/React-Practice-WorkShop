@@ -3,7 +3,7 @@ import UserItem from "./user-item/UserItem";
 export default function UserList({
     users,
     onUsersDetailsCLick,
-    onUserDeleteClick,
+    onUserDeleteClick
 }) {
     return (
         <>

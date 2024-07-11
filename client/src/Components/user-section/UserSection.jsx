@@ -73,20 +73,20 @@ export default function UserSection(props) {
         setShowUserDetailsById(userId);
     }
 
-
     const userDeleteClickHandler = (userId) => {
         setShowUserDeleteById(userId)
+        // console.log(userId)
     }
 
     const userDeleteHandler = async (userId) => {
-
-        const response = await fetch(`${baseUrl}/users/${userId}`, {
+        await fetch(`${baseUrl}/users/${userId}`, {
             method: 'DELETE',
         })
-
-        setUsers(oldUsers => oldUsers.filter(user => user._id !== userId))
+        console.log(userId)
+        setUsers(oldUsers => oldUsers.filter(user => user._id !== userId));
         setShowUserDeleteById(null)
     }
+
 
 
     return (
@@ -117,7 +117,7 @@ export default function UserSection(props) {
                 {showUserDeleteById && (
                     <UserDelete
                         onClose={() => setShowUserDeleteById(null)}
-                        onUserDelete={userDeleteHandler}
+                        onUserDelete={() => userDeleteHandler(showUserDeleteById)}
                     />
                 )}
 
